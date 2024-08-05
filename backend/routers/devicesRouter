@@ -1,0 +1,16 @@
+const express = require('express');
+const deviceControllers = require('../controllers/deviceController')
+
+const devicesRouter = express.Router();
+
+devicesRouter.post('/', deviceControllers.createDevice)
+devicesRouter.get('/:userId', deviceControllers.getDevicesByUserId);
+devicesRouter.patch('/:id', deviceControllers.updateDevice); //id is for 
+devicesRouter.delete('/:id', deviceControllers.deleteDevice);
+
+
+
+
+
+
+module.exports = devicesRouter;

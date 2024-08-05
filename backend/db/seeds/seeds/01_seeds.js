@@ -1,4 +1,4 @@
-// const bcrypt = require('bcrypt');
+const authUtils = require('../../../utils/auth-utils');
 
 /**
  * @param { import("knex").Knex } knex
@@ -13,7 +13,7 @@ exports.seed = async function(knex) {
 
   await knex.raw('TRUNCATE TABLE users RESTART IDENTITY CASCADE')
   await knex('users').insert([
-    { first_and_last_name: 'Noel Fernandez', email: 'noelfernandez98@gmail.com', password: 'Password!', created_at: '2022-01-22 03:25:28.464542+00' },
+    { first_and_last_name: 'Noel Fernandez', email: 'noelfernandez98@gmail.com', password_hash: await authUtils.hashPassword('Password!', 8), created_at: '2022-01-22 03:25:28.464542+00' },
     // { name: 'rowValue1', email: '', password: '', created_at: '' },
     // { name: 'rowValue1', email: '', password: '', created_at: '' },
     // { name: 'rowValue1', email: '', password: '', created_at: '' }

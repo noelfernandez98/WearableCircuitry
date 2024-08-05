@@ -7,7 +7,7 @@ exports.up = function(knex) {
         table.increments('id').primary();
         table.string('first_and_last_name').notNullable();
         table.string('email').notNullable();
-        table.string('password').notNullable();
+        table.string('password_hash').notNullable();
         table.timestamp('created_at').notNullable();
     });
 };
